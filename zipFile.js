@@ -239,19 +239,6 @@ module.exports = function (/*String|Buffer*/input, /*Number*/inputType) {
 			if (!loadedEntries) {
 				readEntries();
 			}
-			if (entryList.length > 1) {
-				entryList.sort(function (a, b) {
-					var nameA = a.entryName.toLowerCase();
-					var nameB = b.entryName.toLowerCase();
-					if (nameA < nameB) {
-						return -1
-					}
-					if (nameA > nameB) {
-						return 1
-					}
-					return 0;
-				});
-			}
 
 			var totalSize = 0,
 				dataBlock = [],
@@ -315,19 +302,6 @@ module.exports = function (/*String|Buffer*/input, /*Number*/inputType) {
 		toAsyncBuffer: function (/*Function*/onSuccess, /*Function*/onFail, /*Function*/onItemStart, /*Function*/onItemEnd) {
 			if (!loadedEntries) {
 				readEntries();
-			}
-			if (entryList.length > 1) {
-				entryList.sort(function (a, b) {
-					var nameA = a.entryName.toLowerCase();
-					var nameB = b.entryName.toLowerCase();
-					if (nameA > nameB) {
-						return -1
-					}
-					if (nameA < nameB) {
-						return 1
-					}
-					return 0;
-				});
 			}
 
 			var totalSize = 0,
